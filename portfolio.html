@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Kedir Mundino | Web Developer & Designer</title>
+    <meta name="description" content="Check out my portfolio of web development and design projects. See examples of my work and the technologies I've used.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Portfolio Section Styles */
+        .portfolio-section {
+            padding: 5rem 2rem;
+            background: var(--darker-bg);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Portfolio Filters */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.6rem 1.8rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            outline: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 0 auto;
+            padding: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.4s forwards;
+        }
+
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: translateY(0);
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+
+        .portfolio-img {
+            position: relative;
+            overflow:visible;
+            height: 220px;
+            background: #694d4d;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0.9;
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
+            opacity: 0.7;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.9) 0%, rgba(74, 69, 177, 0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transform: translateY(20px);
+            transition: all 0.4s ease 0.1s;
+        }
+
+        .portfolio-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            transform: translateY(20px);
+            transition: all 0.4s ease 0.2s;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-item:hover .portfolio-overlay h3,
+        .portfolio-item:hover .portfolio-overlay p {
+            transform: translateY(0);
+        }
+
+        .portfolio-links {
+            display: flex;
+            gap: 1rem;
+            transform: translateY(20px);
+            transition: all 0.4s ease 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-links {
+            transform: translateY(0);
+        }
+
+        .portfolio-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-link:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .portfolio-info {
+            padding: 1.8rem;
+            background: rgba(10, 10, 20, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .portfolio-info h3 {
+            color: var(--light-text);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Load More Button */
+        .portfolio-load-more {
+            text-align: center;
+            margin-top: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2.5rem;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .portfolio-filters {
+                gap: 0.8rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+
+            .portfolio-item {
+                max-width: 100%;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">KM</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+        <div class="section-header fade-in">
+            <h2>My Portfolio</h2>
+            <p>Here are some of my recent projects. Each project represents a unique challenge and solution.</p>
+        </div>
+        
+        <div class="portfolio-filters fade-in">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="app">Web Design</button>
+            <button class="filter-btn" data-filter="design">UI/UX</button>
+        </div>
+        
+        <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-img">
+                    <img src="assets/images/calculator.png" alt="Calculator App" loading="lazy" class="img-fluid d-block w-100">
+                    <div class="portfolio-overlay">
+                        <h3>Calculator App</h3>
+                        <p>A modern calculator application built with HTML, CSS, and JavaScript.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Calculator App</h3>
+                    <span class="portfolio-category">Web Development</span>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="portfolio-item" data-category="app">
+                <div class="portfolio-img">
+                    <img src="assets/images/portfolio.png" alt="Portfolio Website" loading="lazy" class="img-fluid d-block w-100">
+                    <div class="portfolio-overlay">
+                        <h3>Portfolio Website</h3>
+                        <p>A responsive portfolio website design with modern UI/UX principles.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Portfolio Website</h3>
+                    <span class="portfolio-category">Web Design</span>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="portfolio-item" data-category="design">
+                <div class="portfolio-img">
+                    <img src="assets/images/e-commerce.png" alt="E-commerce UI Design" loading="lazy" class="img-fluid d-block w-100">
+                    <div class="portfolio-overlay">
+                        <h3>E-commerce UI Design</h3>
+                        <p>Modern e-commerce user interface design with a focus on user experience.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="View Design">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View on Behance">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>E-commerce UI Design</h3>
+                    <span class="portfolio-category">UI/UX Design</span>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-img">
+                    <img src="assets/images/wheather.png" alt="Weather App" loading="lazy" class="img-fluid d-block w-100">
+                    <div class="portfolio-overlay">
+                        <h3>Weather App</h3>
+                        <p>Real-time weather application using a weather API.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Weather App</h3>
+                    <span class="portfolio-category">Web Development</span>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="portfolio-item" data-category="app">
+                <div class="portfolio-img">
+                    <img src="assets/images/blog.png" alt="Blog Theme" loading="lazy"  class="img-fluid d-block w-100">
+                    <div class="portfolio-overlay">
+                        <h3>Blog Theme</h3>
+                        <p>Minimalist blog theme with clean typography and responsive design.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Blog Theme</h3>
+                    <span class="portfolio-category">Web Design</span>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="portfolio-item" data-category="design">
+                <div class="portfolio-img">
+                    <img src="assets/images/fitness.png" alt="Fitness App UI" loading="lazy"  class="img-fluid d-block w-100">
+                    <div class="portfolio-overlay">
+                        <h3>Fitness App UI</h3>
+                        <p>Mobile application UI design for a fitness tracking app.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="View Design">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View on Dribbble">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Fitness App UI</h3>
+                    <span class="portfolio-category">UI/UX Design</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="portfolio-load-more fade-in">
+            <a href="#" class="btn btn-primary">Load More Projects</a>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-upwork"></i>
+                </a>
+                <a href="https://github.com/kemundino" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/kedir-mundino-b6b67a155/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p>&copy; <span id="year"></span> Kedir Mundino. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Portfolio filtering - Updated to show all projects by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            // Show all items by default
+            portfolioItems.forEach(item => {
+                item.style.display = 'block';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            });
+
+            // Set 'All' button as active by default
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            // Show matching items with animation
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            // Hide non-matching items with animation
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.95)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Initialize portfolio items with animation
+            const portfolioItemsArray = Array.from(portfolioItems);
+            portfolioItemsArray.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+        });
+    </script>
+</body>
+</html>
