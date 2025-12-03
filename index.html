@@ -19,6 +19,24 @@
             overflow-x: hidden;
             font-size: 16px;
             line-height: 1.6;
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Hide scrollbar for all elements */
+        *::-webkit-scrollbar {
+            display: none;
+        }
+        
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
         
         img {
@@ -240,7 +258,7 @@
             </div>
             <p class="hero-description">Crafting beautiful and functional web experiences</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Hire Me</a>
+                <a href="#contact" class="btn btn-secondary">Hire Me</a>
                 <a href="portfolio.html" class="btn btn-secondary">View Portfolio</a>
             </div>
         </div>
