@@ -22,7 +22,6 @@ if (yearElement) {
 // Mobile Navigation Toggle
 if (hamburger) {
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
         
         // Toggle body scroll when mobile menu is open
@@ -240,3 +239,47 @@ function showAlert(message, type) {
         }, 300);
     }, 5000);
 }
+
+// Dynamic Typing Effect for Hero Section
+document.addEventListener("DOMContentLoaded", function() {
+    const typingElement = document.getElementById("typing");
+    const phrases = ["Web Developer", "Designer", "Freelancer"];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentPhrase = phrases[phraseIndex];
+        if (isDeleting) {
+            typingElement.textContent = currentPhrase.substring(0, charIndex--);
+        } else {
+            typingElement.textContent = currentPhrase.substring(0, charIndex++);
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1000); // Pause before deleting
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(typeEffect, 500); // Pause before typing next phrase
+        } else {
+            setTimeout(typeEffect, isDeleting ? 50 : 100);
+        }
+    }
+
+    typeEffect();
+
+    // Update footer year
+    const yearElement = document.getElementById("year");
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+
+    // Toggle navigation menu when hamburger icon is clicked
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", function() {
+            navLinks.classList.toggle("active");
+        });
+    }
+});
