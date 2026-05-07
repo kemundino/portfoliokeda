@@ -320,6 +320,8 @@
 
             .portfolio-filters {
                 gap: 0.8rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .filter-btn {
@@ -332,6 +334,7 @@
             .portfolio-grid {
                 grid-template-columns: 1fr;
                 padding: 0;
+                gap: 1.5rem;
             }
 
             .portfolio-item {
@@ -344,6 +347,35 @@
 
             .section-header p {
                 font-size: 1rem;
+            }
+
+            .portfolio-filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .portfolio-section {
+                padding: 3rem 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .portfolio-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -417,10 +449,10 @@
                         <h3>OFD Website</h3>
                         <p>A responsive Onlinf Food Delivery website design with modern UI/UX principles.</p>
                         <div class="portfolio-links">
-                            <a href="http://ofd.infinityfree.me" class="portfolio-link" title="Live Demo">
+                            <a href="https://online-shop-olive-nine.vercel.app/" class="portfolio-link" title="Live Demo">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <a href="https://ofd.infinityfree.me" class="portfolio-link" title="View Code">
+                            <a href="https://online-shop-olive-nine.vercel.app/" class="portfolio-link" title="View Code">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>

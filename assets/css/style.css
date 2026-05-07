@@ -583,6 +583,7 @@ p, h1, h2, h3, h4, h5, h6 {
         padding: 6rem 2rem 2rem;
         transition: all 0.5s ease;
         z-index: 999;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
     }
     
     .nav-links.active {
@@ -641,6 +642,11 @@ p, h1, h2, h3, h4, h5, h6 {
     .btn-secondary {
         margin-left: 0;
     }
+
+    .nav-links {
+        width: 100%;
+        right: -100%;
+    }
 }
 
 @media (max-width: 576px) {
@@ -663,6 +669,54 @@ p, h1, h2, h3, h4, h5, h6 {
     .cta-buttons .btn {
         padding: 0.7rem 1.2rem;
         font-size: 0.85rem;
+    }
+
+    .nav-links {
+        padding: 5rem 1.5rem 2rem;
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        padding: 4rem 1rem 2rem;
+    }
+
+    .nav-links a {
+        padding: 1.2rem 1rem;
+        font-size: 1rem;
+    }
+
+    .hamburger {
+        padding: 8px;
+    }
+
+    .hamburger span {
+        width: 22px;
+        height: 2px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-links {
+        padding: 3rem 0.8rem 2rem;
+    }
+
+    .nav-links a {
+        padding: 1rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .typing-text {
+        font-size: 1rem;
     }
 }
 
