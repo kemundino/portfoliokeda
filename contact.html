@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Kedir Mundino | Web Developer & Designer</title>
-    <meta name="description" content="Get in touch with me for your web development and design needs. I'd love to hear about your project!">
+    <meta name="description"
+        content="Get in touch with me for your web development and design needs. I'd love to hear about your project!">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
@@ -13,15 +15,15 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
-        
+
         *::-webkit-scrollbar {
             display: none;
         }
-        
+
         body {
             overflow-x: hidden;
         }
-        
+
         /* Form Messages */
         #form-messages {
             display: none;
@@ -29,43 +31,44 @@
             padding: 15px;
             border-radius: 5px;
         }
-        
+
         .alert {
             padding: 12px 20px;
             border-radius: 4px;
             margin-bottom: 15px;
             font-size: 0.95rem;
         }
-        
+
         .alert-success {
             background-color: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
-        
+
         .alert-error {
             background-color: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
+
         /* Contact Section */
         .contact-section {
             padding: 100px 0;
             background-color: var(--darker-bg);
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
         }
-        
+
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
         }
-        
+
         .section-header h2::after {
             content: '';
             position: absolute;
@@ -77,13 +80,13 @@
             background-color: var(--primary-color);
             border-radius: 2px;
         }
-        
+
         .section-header p {
             max-width: 700px;
             margin: 0 auto;
             color: var(--gray-text);
         }
-        
+
         .contact-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -92,11 +95,11 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
         }
-        
+
         .contact-info {
             margin-bottom: 2rem;
         }
-        
+
         .contact-info h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
@@ -104,7 +107,7 @@
             position: relative;
             padding-bottom: 0.8rem;
         }
-        
+
         .contact-info h3::after {
             content: '';
             position: absolute;
@@ -115,17 +118,17 @@
             background-color: var(--primary-color);
             border-radius: 2px;
         }
-        
+
         .contact-details {
             margin-bottom: 2.5rem;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 1.5rem;
         }
-        
+
         .contact-icon {
             width: 50px;
             height: 50px;
@@ -139,30 +142,30 @@
             font-size: 1.2rem;
             flex-shrink: 0;
         }
-        
+
         .contact-text h4 {
             font-size: 1.1rem;
             margin-bottom: 0.3rem;
             color: white;
         }
-        
-        .contact-text p, 
+
+        .contact-text p,
         .contact-text a {
             color: var(--gray-text);
             transition: var(--transition);
             text-decoration: none;
         }
-        
+
         .contact-text a:hover {
             color: var(--primary-color);
         }
-        
+
         .social-contact {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
-        
+
         .social-contact a {
             display: flex;
             align-items: center;
@@ -174,13 +177,13 @@
             color: var(--gray-text);
             transition: var(--transition);
         }
-        
+
         .social-contact a:hover {
             background-color: var(--primary-color);
             color: white;
             transform: translateY(-3px);
         }
-        
+
         /* Contact Form */
         .contact-form {
             background-color: var(--dark-bg);
@@ -189,110 +192,113 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .form-group {
             margin-bottom: 1.5rem;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-           color: #333;
-        font-weight: 500;
-        font-size: 0.95rem;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
         }
-        
-    .form-control {
-        width: 100%;
-        padding: 0.9rem 1.2rem;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        font-size: 1rem;
-        color: #111;
-        background: #fff;
-        transition: all 0.3s ease;
-    }
-        
-   .form-control:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
-        outline: none;
-    }
-   textarea.form-control {
-        min-height: 150px;
-        resize: vertical;
-    }
-    /* Send Message Button - Modern Responsive Style */
-.submit-btn {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.9rem 2.5rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
 
-.submit-btn:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: #111;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
 
-.submit-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.3);
-}
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+            outline: none;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .submit-btn {
-        padding: 0.8rem 2rem;
-        font-size: 0.95rem;
-    }
-}
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
 
-@media (max-width: 576px) {
-    .submit-btn {
-        width: 100%; /* button takes full width on small screens */
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-    }
-}
+        /* Send Message Button - Modern Responsive Style */
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.9rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .submit-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .submit-btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .submit-btn {
+                width: 100%;
+                /* button takes full width on small screens */
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
 
 
-    
-    .btn-submit {
-        background-color: var(--primary-color);
-        color: white;
-        padding: 0.9rem 2.5rem;
-        border: none;
-        border-radius: 6px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    
-    .btn-submit:hover {
-        background-color: var(--secondary-color);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
-    }
-        
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.9rem 2.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
         /* Map Section */
         .map-section {
             padding: 0 0 80px;
             background-color: var(--dark-bg);
         }
-        
+
         .map-container {
             width: 100%;
             height: 400px;
@@ -301,13 +307,13 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .map-container iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
-        
+
         /* Success/Error Messages */
         .alert {
             padding: 15px;
@@ -316,75 +322,77 @@
             font-size: 0.95rem;
             display: none;
         }
-        
+
         .alert-success {
             background-color: rgba(0, 200, 81, 0.1);
             border: 1px solid rgba(0, 200, 81, 0.2);
             color: #00c851;
         }
-        
+
         .alert-error {
             background-color: rgba(255, 68, 68, 0.1);
             border: 1px solid rgba(255, 68, 68, 0.2);
             color: #ff4444;
         }
-        
+
         @media (max-width: 768px) {
             .section-header h2 {
                 font-size: 2rem;
             }
-            
+
             .contact-container {
                 grid-template-columns: 1fr;
                 padding: 0 1.5rem;
             }
-            
+
             .contact-form {
-        background: #f5f5f5;
-        padding: 2.5rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-            
+                background: #f5f5f5;
+                padding: 2.5rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+
             .map-container {
                 height: 300px;
             }
         }
-        
+
         @media (max-width: 576px) {
             .section-header h2 {
                 font-size: 1.8rem;
             }
-            
+
             .contact-item {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .contact-icon {
                 margin-bottom: 1rem;
             }
         }
-            /* Dark theme overrides */
-    .dark-theme .contact-form {
-        background: #2d2d2d;
-    }
-    
-    .dark-theme .form-group label {
-        color: #f0f0f0;
-    }
-    
-    .dark-theme .form-control {
-        background: #3d3d3d;
-        border-color: #444;
-        color: #fff;
-    }
-    
-    .dark-theme .form-control::placeholder {
-        color: #999;
-    }
+
+        /* Dark theme overrides */
+        .dark-theme .contact-form {
+            background: #2d2d2d;
+        }
+
+        .dark-theme .form-group label {
+            color: #f0f0f0;
+        }
+
+        .dark-theme .form-control {
+            background: #3d3d3d;
+            border-color: #444;
+            color: #fff;
+        }
+
+        .dark-theme .form-control::placeholder {
+            color: #999;
+        }
     </style>
 </head>
+
 <body class="dark-theme">
     <!-- Header -->
     <header class="header">
@@ -413,15 +421,16 @@
             <h2>Get In Touch</h2>
             <p>Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
         </div>
-        
+
         <div id="form-messages"></div>
-        
+
         <div class="contact-container">
             <div class="contact-info fade-in">
                 <div class="contact-details">
                     <h3>Contact Information</h3>
-                    <p>Feel free to get in touch with me. I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
-                    
+                    <p>Feel free to get in touch with me. I am always open to discussing new projects, creative ideas,
+                        or opportunities to be part of your visions.</p>
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
@@ -431,32 +440,33 @@
                             <p>Addis Ababa, Ethiopia</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-text">
                             <h4>Email</h4>
-                            <a href="mailto:kedir.mundino@example.com">kedir.mundino@example.com</a>
+                            <a href="mailto:kedirmundino05@gmail.com">kedirmundino05@gmail.com</a>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="contact-text">
                             <h4>Phone</h4>
-                            <a href="tel:+251900000000">+251 900 000 000</a>
+                            <a href="tel:+251994514333">+251 994 514 333</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="social-section">
                     <h3>Follow Me</h3>
                     <div class="social-contact">
-                        <a href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8" target="_blank" rel="noopener noreferrer" title="Upwork">
+                        <a href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8" target="_blank"
+                            rel="noopener noreferrer" title="Upwork">
                             <i class="fab fa-upwork"></i>
                         </a>
                         <a href="#" target="_blank" rel="noopener noreferrer" title="GitHub">
@@ -471,31 +481,32 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="contact-form-container fade-in" style="animation-delay: 0.2s">
-                <form id="contact-form" class="contact-form fade-in" action="https://formsubmit.co/kedirmundino05@gmail.com" method="POST" novalidate>
+                <form id="contact-form" class="contact-form fade-in"
+                    action="https://formsubmit.co/kedirmundino05@gmail.com" method="POST" novalidate>
                     <div id="form-messages" class="alert" role="alert"></div>
-                    
+
                     <div class="form-group">
                         <label for="name">Your Name <span class="required">*</span></label>
                         <input type="text" id="name" name="name" class="form-control" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Your Email <span class="required">*</span></label>
                         <input type="email" id="email" name="email" class="form-control" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="subject">Subject</label>
                         <input type="text" id="subject" name="subject" class="form-control">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">Your Message <span class="required">*</span></label>
                         <textarea id="message" name="message" class="form-control" required></textarea>
                     </div>
-                    
+
                     <button type="submit" id="submit-btn" class="submit-btn">
                         <span id="submit-text">Send Message</span>
                         <span id="submit-loading" style="display: none;">
@@ -506,12 +517,14 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Map Section -->
     <section class="map-section">
         <div class="contact-container">
             <div class="map-container fade-in">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.2716718454355!2d38.78637531529968!3d9.02292759353264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMDEnMjIuNSJOIDM4wrA0NycxOS4xIkU!5e0!3m2!1sen!2set!4v1620000000000!5m2!1sen!2set" allowfullscreen="" loading="lazy"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.2716718454355!2d38.78637531529968!3d9.02292759353264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMDEnMjIuNSJOIDM4wrA0NycxOS4xIkU!5e0!3m2!1sen!2set!4v1620000000000!5m2!1sen!2set"
+                    allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -520,7 +533,8 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="social-links">
-                <a href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8" target="_blank"
+                    rel="noopener noreferrer">
                     <i class="fab fa-upwork"></i>
                 </a>
                 <a href="https://github.com/kemundino" target="_blank" rel="noopener noreferrer">
@@ -539,7 +553,7 @@
 
     <script src="main.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const contactForm = document.getElementById('contact-form');
             const submitBtn = document.getElementById('submit-btn');
             const submitText = document.getElementById('submit-text');
@@ -564,89 +578,89 @@
                 }, 5000);
             }
             const submitLoading = document.getElementById('submit-loading');
-            
+
             if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Change button text to indicate processing
-                submitText.textContent = 'Sending...';
-                submitBtn.disabled = true;
-                
-                // Get form data
-                const formData = new FormData(contactForm);
-                
-                // Basic client-side validation
-                const name = formData.get('name');
-                const email = formData.get('email');
-                const message = formData.get('message');
-                
-                if (!name || !email || !message) {
-                    showError('Please fill in all required fields.');
-                    submitText.textContent = 'Send Message';
-                    submitBtn.disabled = false;
-                    return;
-                }
-                
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    showError('Please enter a valid email address.');
-                    submitText.textContent = 'Send Message';
-                    submitBtn.disabled = false;
-                    return;
-                }
-                
-                // Send form data via FormSubmit
-                fetch('https://formsubmit.co/ajax/kedirmundino05@gmail.com', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name: name,
-                        email: email,
-                        subject: formData.get('subject') || 'New message from portfolio',
-                        message: message
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        showSuccess('Your message has been sent successfully!');
-                        submitText.textContent = 'Message Sent!';
-                        setTimeout(() => {
-                            submitText.textContent = 'Send Message';
-                        }, 3000);
-                    } else {
-                        showError(data.message || 'An error occurred. Please try again.');
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Change button text to indicate processing
+                    submitText.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+
+                    // Get form data
+                    const formData = new FormData(contactForm);
+
+                    // Basic client-side validation
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const message = formData.get('message');
+
+                    if (!name || !email || !message) {
+                        showError('Please fill in all required fields.');
                         submitText.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                        return;
                     }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    showError('An error occurred while sending your message. Please try again.');
-                    submitText.textContent = 'Send Message';
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitText.style.display = 'inline-block';
-                    if (submitLoading) submitLoading.style.display = 'none';
-                    
-                    if (formMessages) {
-                        formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                        showError('Please enter a valid email address.');
+                        submitText.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                        return;
                     }
+
+                    // Send form data via FormSubmit
+                    fetch('https://formsubmit.co/ajax/kedirmundino05@gmail.com', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            subject: formData.get('subject') || 'New message from portfolio',
+                            message: message
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                showSuccess('Your message has been sent successfully!');
+                                submitText.textContent = 'Message Sent!';
+                                setTimeout(() => {
+                                    submitText.textContent = 'Send Message';
+                                }, 3000);
+                            } else {
+                                showError(data.message || 'An error occurred. Please try again.');
+                                submitText.textContent = 'Send Message';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            showError('An error occurred while sending your message. Please try again.');
+                            submitText.textContent = 'Send Message';
+                        })
+                        .finally(() => {
+                            submitBtn.disabled = false;
+                            submitText.style.display = 'inline-block';
+                            if (submitLoading) submitLoading.style.display = 'none';
+
+                            if (formMessages) {
+                                formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        });
                 });
-            });
-        }
-            
+            }
+
             // Add smooth scrolling to all links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    
+
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
@@ -659,4 +673,5 @@
         });
     </script>
 </body>
+
 </html>
