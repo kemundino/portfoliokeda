@@ -19,31 +19,59 @@ if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
 
-// Mobile Navigation Toggle
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        
-        // Toggle body scroll when mobile menu is open
-        if (navLinks.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
-    });
-}
+// Mobile Navigation Toggle — with overlay
+(function() {
+    if (!hamburger || !navLinks) return;
 
-// Close mobile menu when clicking on a nav link
-navLinksItems.forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 992) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = 'auto';
+    // Create or reuse overlay
+    let overlay = document.querySelector('.sidebar-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'sidebar-overlay';
+        document.body.appendChild(overlay);
+    }
+
+    function openSidebar() {
+        hamburger.classList.add('active');
+        navLinks.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (navLinks.classList.contains('active')) {
+            closeSidebar();
+        } else {
+            openSidebar();
         }
     });
-});
+
+    // Close when clicking the overlay
+    overlay.addEventListener('click', closeSidebar);
+
+    // Close when a nav link is clicked
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', closeSidebar);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeSidebar();
+    });
+
+    // Close when resizing to desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 991) closeSidebar();
+    });
+})();
 
 // Typing Effect Function
 function type() {
@@ -165,32 +193,54 @@ const animateOnScroll = () => {
 window.addEventListener('load', animateOnScroll);
 window.addEventListener('scroll', animateOnScroll);
 
-// Form validation for contact form
+// Contact form — send via EmailJS
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
+
+        const name    = document.getElementById('name').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const subject = (document.getElementById('subject') || {}).value || '';
         const message = document.getElementById('message').value.trim();
-        
-        // Simple validation
-        if (name === '' || email === '' || message === '') {
-            showAlert('Please fill in all fields', 'error');
+        const submitBtn  = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+
+        // Validation
+        if (!name || !email || !message) {
+            showAlert('Please fill in all required fields.', 'error');
             return;
         }
-        
         if (!isValidEmail(email)) {
-            showAlert('Please enter a valid email address', 'error');
+            showAlert('Please enter a valid email address.', 'error');
             return;
         }
-        
-        // If validation passes, you can submit the form
-        // For now, we'll just show a success message
-        showAlert('Message sent successfully! I\'ll get back to you soon.', 'success');
-        contactForm.reset();
+
+        // UI loading state
+        if (submitBtn)  submitBtn.disabled = true;
+        if (submitText) submitText.textContent = 'Sending...';
+
+        // Send via EmailJS
+        emailjs.send('service_portfolio_km', 'template_portfolio_km', {
+            from_name:    name,
+            from_email:   email,
+            subject:      subject || 'Portfolio Contact',
+            message:      message,
+            to_email:     'kedirmundino05@gmail.com'
+        })
+        .then(function() {
+            showAlert('✅ Message sent successfully! I\'ll get back to you soon.', 'success');
+            contactForm.reset();
+            if (submitText) submitText.textContent = 'Send Message';
+        })
+        .catch(function(err) {
+            console.error('EmailJS error:', err);
+            showAlert('❌ Failed to send message. Please email me directly at kedirmundino05@gmail.com', 'error');
+            if (submitText) submitText.textContent = 'Send Message';
+        })
+        .finally(function() {
+            if (submitBtn) submitBtn.disabled = false;
+        });
     });
 }
 

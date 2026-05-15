@@ -644,7 +644,8 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 
     .nav-links {
-        width: 100%;
+        width: 85vw;
+        max-width: 280px;
         right: -100%;
     }
 }

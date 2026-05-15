@@ -473,7 +473,7 @@
             </div>
             
             <div class="contact-form-container fade-in" style="animation-delay: 0.2s">
-                <form id="contact-form" class="contact-form fade-in" action="contact.php" method="POST" novalidate>
+                <form id="contact-form" class="contact-form fade-in" action="https://formsubmit.co/kedirmundino05@gmail.com" method="POST" novalidate>
                     <div id="form-messages" class="alert" role="alert"></div>
                     
                     <div class="form-group">
@@ -595,14 +595,23 @@
                     return;
                 }
                 
-                // Send form data to server
-                fetch('contact.php', {
+                // Send form data via FormSubmit
+                fetch('https://formsubmit.co/ajax/kedirmundino05@gmail.com', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        subject: formData.get('subject') || 'New message from portfolio',
+                        message: message
+                    })
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.status === 'success') {
+                    if (data.success) {
                         showSuccess('Your message has been sent successfully!');
                         submitText.textContent = 'Message Sent!';
                         setTimeout(() => {
@@ -620,23 +629,15 @@
                 })
                 .finally(() => {
                     submitBtn.disabled = false;
-                        formMessages.className = 'alert alert-error';
-                        formMessages.textContent = 'An error occurred. Please try again.';
-                        formMessages.style.display = 'block';
-                    })
-                    .finally(() => {
-                        // Reset button state
-                        submitBtn.disabled = false;
-                        submitText.style.display = 'inline-block';
-                        if (submitLoading) submitLoading.style.display = 'none';
-                        
-                        // Scroll to form messages
-                        if (formMessages) {
-                            formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }
-                    });
+                    submitText.style.display = 'inline-block';
+                    if (submitLoading) submitLoading.style.display = 'none';
+                    
+                    if (formMessages) {
+                        formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                 });
-            }
+            });
+        }
             
             // Add smooth scrolling to all links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
