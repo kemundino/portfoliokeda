@@ -194,55 +194,7 @@ window.addEventListener('load', animateOnScroll);
 window.addEventListener('scroll', animateOnScroll);
 
 // Contact form — send via EmailJS
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
 
-        const name    = document.getElementById('name').value.trim();
-        const email   = document.getElementById('email').value.trim();
-        const subject = (document.getElementById('subject') || {}).value || '';
-        const message = document.getElementById('message').value.trim();
-        const submitBtn  = document.getElementById('submit-btn');
-        const submitText = document.getElementById('submit-text');
-
-        // Validation
-        if (!name || !email || !message) {
-            showAlert('Please fill in all required fields.', 'error');
-            return;
-        }
-        if (!isValidEmail(email)) {
-            showAlert('Please enter a valid email address.', 'error');
-            return;
-        }
-
-        // UI loading state
-        if (submitBtn)  submitBtn.disabled = true;
-        if (submitText) submitText.textContent = 'Sending...';
-
-        // Send via EmailJS
-        emailjs.send('service_portfolio_km', 'template_portfolio_km', {
-            from_name:    name,
-            from_email:   email,
-            subject:      subject || 'Portfolio Contact',
-            message:      message,
-            to_email:     'kedirmundino05@gmail.com'
-        })
-        .then(function() {
-            showAlert('✅ Message sent successfully! I\'ll get back to you soon.', 'success');
-            contactForm.reset();
-            if (submitText) submitText.textContent = 'Send Message';
-        })
-        .catch(function(err) {
-            console.error('EmailJS error:', err);
-            showAlert('❌ Failed to send message. Please email me directly at kedirmundino05@gmail.com', 'error');
-            if (submitText) submitText.textContent = 'Send Message';
-        })
-        .finally(function() {
-            if (submitBtn) submitBtn.disabled = false;
-        });
-    });
-}
 
 // Helper function to validate email
 function isValidEmail(email) {
