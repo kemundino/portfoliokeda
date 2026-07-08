@@ -11,7 +11,7 @@
         <style><?php echo $additional_styles; ?></style>
     <?php endif; ?>
 </head>
-<body class="dark-theme">
+<body>
     <!-- Header -->
     <header class="header">
         <nav class="navbar">

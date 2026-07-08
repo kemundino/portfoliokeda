@@ -103,7 +103,7 @@
         .contact-info h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: white;
+            color: var(--dark-text);
             position: relative;
             padding-bottom: 0.8rem;
         }
@@ -146,7 +146,7 @@
         .contact-text h4 {
             font-size: 1.1rem;
             margin-bottom: 0.3rem;
-            color: white;
+            color: var(--dark-text);
         }
 
         .contact-text p,
@@ -186,11 +186,11 @@
 
         /* Contact Form */
         .contact-form {
-            background-color: var(--dark-bg);
+            background-color: var(--card-bg);
             padding: 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--card-border);
         }
 
         .form-group {
@@ -200,7 +200,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #333;
+            color: var(--dark-text);
             font-weight: 500;
             font-size: 0.95rem;
         }
@@ -208,11 +208,11 @@
         .form-control {
             width: 100%;
             padding: 0.9rem 1.2rem;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             font-size: 1rem;
-            color: #111;
-            background: #fff;
+            color: var(--dark-text);
+            background: var(--light-bg);
             transition: all 0.3s ease;
         }
 
@@ -372,28 +372,10 @@
             }
         }
 
-        /* Dark theme overrides */
-        .dark-theme .contact-form {
-            background: #2d2d2d;
-        }
-
-        .dark-theme .form-group label {
-            color: #f0f0f0;
-        }
-
-        .dark-theme .form-control {
-            background: #3d3d3d;
-            border-color: #444;
-            color: #fff;
-        }
-
-        .dark-theme .form-control::placeholder {
-            color: #999;
-        }
     </style>
 </head>
 
-<body class="dark-theme">
+<body>
     <!-- Header -->
     <header class="header">
         <nav class="navbar">

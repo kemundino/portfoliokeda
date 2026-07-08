@@ -143,8 +143,8 @@
         /* About Section */
         .about-section {
             padding: clamp(2rem, 8vw, 6rem) clamp(0.5rem, 3vw, 0);
-            background-color: #121212;
-            color: #e32d2d;
+            background-color: var(--darker-bg);
+            color: var(--dark-text);
             overflow: hidden;
             min-height: 100vh;
         }
@@ -154,7 +154,7 @@
             font-size: clamp(1.5rem, 5vw, 2.5rem);
             margin: 0 auto clamp(1.5rem, 4vw, 3rem);
             position: relative;
-            color: #fff;
+            color: var(--dark-text);
             word-wrap: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
@@ -193,42 +193,14 @@
             position: relative;
             border-radius: clamp(8px, 2vw, 20px);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            width: 80%;
-            max-width: 300px;
-            height: 0;
-            padding-bottom: 125%; /* 4:5 aspect ratio */
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 1 / 1;
             margin: 0 auto;
-        }
-        
-        @media (max-width: 768px) {
-            .about-image {
-                width: 70%;
-                max-width: 250px;
-                padding-bottom: 120%; /* 5:6 aspect ratio */
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .about-image {
-                width: 60%;
-                max-width: 200px;
-                padding-bottom: 120%; /* 5:6 aspect ratio */
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .about-image {
-                width: 50%;
-                max-width: 100px;
-                padding-bottom: 130%; /* 10:13 aspect ratio */
-            }
         }
 
         .image-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             border-radius: clamp(8px, 2vw, 20px);
@@ -236,11 +208,8 @@
         }
 
         .about-image img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100% !important;
-            height: 100% !important;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
             border-radius: clamp(8px, 2vw, 20px);
@@ -248,7 +217,7 @@
         }
 
         .about-image:hover img {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         .about-content {
@@ -282,7 +251,7 @@
             font-size: clamp(0.9rem, 2.5vw, 1.1rem);
             line-height: 1.8;
             margin: 0 0 clamp(1rem, 2.5vw, 1.5rem);
-            color: #e0e0e0;
+            color: var(--dark-text);
             word-wrap: break-word;
             overflow-wrap: break-word;
             text-align: center;
@@ -347,11 +316,11 @@
             display: flex;
             align-items: flex-start;
             gap: clamp(0.8rem, 2vw, 1.2rem);
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--card-bg);
             padding: clamp(1rem, 2vw, 1.5rem);
             border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
             text-align: left;
         }
         
@@ -373,8 +342,8 @@
 
         .detail-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            background: rgba(255, 255, 255, 0.05);
+            box-shadow: var(--box-shadow);
+            background: var(--dark-bg);
         }
 
         .icon-wrapper {
@@ -424,7 +393,7 @@
         .detail-title {
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             margin-bottom: 0.5rem;
-            color: #fff;
+            color: var(--dark-text);
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
@@ -444,7 +413,7 @@
         }
 
         .detail-text {
-            color: #b0b0b0;
+            color: var(--gray-text);
             margin: 0.2rem 0;
             line-height: 1.6;
             font-size: clamp(0.9rem, 2vw, 1rem);
@@ -886,19 +855,6 @@
             text-align: center;
         }
         
-        .about-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: clamp(8px, 1.5vw, 10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: var(--transition);
-            display: block;
-        }
-        
-        .about-image img:hover {
-            transform: translateY(-10px);
-        }
-        
         .about-content h2 {
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             margin: 0 0 clamp(1rem, 2.5vw, 1.5rem);
@@ -1125,7 +1081,7 @@
         }
     </style>
 </head>
-<body class="dark-theme">
+<body>
     <!-- Header -->
     <header class="header">
         <nav class="navbar">

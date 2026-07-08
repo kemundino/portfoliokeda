@@ -67,12 +67,12 @@
         }
         
         .service-card {
-            background-color: var(--dark-bg);
+            background-color: var(--card-bg);
             border-radius: 10px;
             padding: 2.5rem 2rem;
             text-align: center;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -96,7 +96,7 @@
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--box-shadow);
         }
         
         .service-icon {
@@ -122,7 +122,7 @@
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: white;
+            color: var(--dark-text);
         }
         
         .service-card p {
@@ -175,7 +175,7 @@
         .skill-category h3 {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
-            color: white;
+            color: var(--dark-text);
             position: relative;
             padding-bottom: 0.8rem;
         }
@@ -203,7 +203,7 @@
         
         .skill-name {
             font-weight: 600;
-            color: white;
+            color: var(--dark-text);
         }
         
         .skill-percent {
@@ -213,7 +213,7 @@
         
         .skill-bar {
             height: 8px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--border-color);
             border-radius: 4px;
             overflow: hidden;
         }
@@ -282,7 +282,7 @@
         .process-step h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: white;
+            color: var(--dark-text);
         }
         
         .process-step p {
@@ -307,7 +307,7 @@
         .cta-content h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            color: white;
+            color: var(--dark-text);
         }
         
         .cta-content p {
@@ -365,7 +365,7 @@
         }
     </style>
 </head>
-<body class="dark-theme">
+<body>
     <!-- Header -->
     <header class="header">
         <nav class="navbar">

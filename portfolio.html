@@ -117,19 +117,19 @@
         }
 
         .portfolio-item {
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--box-shadow);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
             transform: translateY(0);
             position: relative;
         }
 
         .portfolio-item:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--box-shadow);
             border-color: rgba(108, 99, 255, 0.3);
         }
 
@@ -137,7 +137,7 @@
             position: relative;
             overflow:visible;
             height: 220px;
-            background: #694d4d;
+            background: transparent;
         }
 
         .portfolio-img img {
@@ -227,9 +227,9 @@
 
         .portfolio-info {
             padding: 1.8rem;
-            background: rgba(10, 10, 20, 0.6);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--card-border);
         }
 
         .portfolio-info h3 {
